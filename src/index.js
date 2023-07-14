@@ -1,39 +1,30 @@
 import './index.css';
+import {
+  renderTodoList, addTask,
+} from './operations.js';
 
-const tasks = [
-  {
-    description: 'Complete homework',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Go grocery shopping',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'Clean the kitchen',
-    completed: false,
-    index: 3,
-  },
-];
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+const addButton = document.getElementById('addbutton');
+addButton.addEventListener('click', () => {
+//   const task = document.getElementById('addTask');
+//   task.addEventListener('change', () => {
+//     const doit = task.value;
+//     if (doit) {
+//       const tasks = addTask(doit);
+//       localStorage.setItem('tasks', JSON.stringify(tasks));
 
-function renderTodoList() {
-  const todoList = document.querySelector('#todo-list');
-  todoList.innerHTML = '';
+//       renderTodoList();
+//       task.value = '';
+//     }
+//   });
+  console.log('me');
+});
 
-  tasks
-    .sort((a, b) => a.index - b.index)
-    .forEach((task) => {
-      const li = document.createElement('li');
-      li.classList = 'options';
-      li.innerHTML = `
-          <input type="checkbox" ${task.completed ? 'checked' : ''} />
-          <span class="description">${task.description}</span>
-        `;
+// const clearCompletedButton = document.querySelector('#clear-completed-button');
+// clearCompletedButton.addEventListener('click', () => {
+//   tasks = clearCompletedTasks(tasks);
+//   localStorage.setItem('tasks', JSON.stringify(tasks));
+//   renderTodoList();
+// });
 
-      todoList.appendChild(li);
-    });
-}
-
-window.addEventListener('load', renderTodoList);
+window.addEventListener('load', renderTodoList(tasks));
