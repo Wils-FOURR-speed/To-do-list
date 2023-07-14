@@ -1,3 +1,5 @@
+import './index.css';
+
 const tasks = [
   {
     description: 'Complete homework',
@@ -24,10 +26,10 @@ function renderTodoList() {
     .sort((a, b) => a.index - b.index)
     .forEach((task) => {
       const li = document.createElement('li');
-
+      li.classList = 'options';
       li.innerHTML = `
           <input type="checkbox" ${task.completed ? 'checked' : ''} />
-          <span>${task.description}</span>
+          <span class="description">${task.description}</span>
         `;
 
       todoList.appendChild(li);
