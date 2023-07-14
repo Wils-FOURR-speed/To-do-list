@@ -1,30 +1,14 @@
 import './index.css';
-import {
-  renderTodoList, addTask,
-} from './operations.js';
+import Tasks from './operations.js';
 
-const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-const addButton = document.getElementById('addbutton');
-addButton.addEventListener('click', () => {
-//   const task = document.getElementById('addTask');
-//   task.addEventListener('change', () => {
-//     const doit = task.value;
-//     if (doit) {
-//       const tasks = addTask(doit);
-//       localStorage.setItem('tasks', JSON.stringify(tasks));
+const tasks = new Tasks();
+const addTaskBtn = document.getElementById('addBtn');
 
-//       renderTodoList();
-//       task.value = '';
-//     }
-//   });
-  console.log('me');
+addTaskBtn.addEventListener('click', () => {
+  tasks.addTask();
 });
 
-// const clearCompletedButton = document.querySelector('#clear-completed-button');
-// clearCompletedButton.addEventListener('click', () => {
-//   tasks = clearCompletedTasks(tasks);
-//   localStorage.setItem('tasks', JSON.stringify(tasks));
-//   renderTodoList();
-// });
-
-window.addEventListener('load', renderTodoList(tasks));
+const clearBtn = document.getElementById('clearBtn');
+clearBtn.addEventListener('click', () => {
+  tasks.clearComplete();
+});
