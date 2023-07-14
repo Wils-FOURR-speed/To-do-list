@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -19,7 +20,7 @@ body {
 .container {
   background-color: #f4f4f4;
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(105, 93, 93, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);;
+  box-shadow: 0 10px 20px rgba(105, 93, 93, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   padding: 5px 20px;
   text-align: center;
   max-width: 100%;
