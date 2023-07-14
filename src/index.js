@@ -28,6 +28,7 @@ function renderTodoList() {
       const li = document.createElement('li');
       li.classList = 'options';
       li.innerHTML = `
+          <input id="addTask" type="text" placeholder="Add a new task" required/>
           <input type="checkbox" ${task.completed ? 'checked' : ''} />
           <span class="description">${task.description}</span>
         `;
