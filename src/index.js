@@ -1,39 +1,45 @@
 import './index.css';
 
-const tasks = [
+const task = [
   {
-    description: 'Complete homework',
+    description: 'wash the dishes',
     completed: false,
     index: 1,
   },
   {
-    description: 'Go grocery shopping',
-    completed: true,
+    description: 'complete To Do list project',
+    completed: false,
     index: 2,
   },
   {
-    description: 'Clean the kitchen',
+    description: 'Deploy the app to the server',
     completed: false,
     index: 3,
   },
+
 ];
 
-function renderTodoList() {
-  const todoList = document.querySelector('#todo-list');
-  todoList.innerHTML = '';
+const renderTask = () => {
+  const taskList = document.getElementById('list');
+  taskList.innerHTML = '';
+  // sort tasks by index
+  task.sort((a, b) => a.index - b.index);
 
-  tasks
-    .sort((a, b) => a.index - b.index)
-    .forEach((task) => {
-      const li = document.createElement('li');
-      li.classList = 'options';
-      li.innerHTML = `
-          <input type="checkbox" ${task.completed ? 'checked' : ''} />
-          <span class="description">${task.description}</span>
-        `;
+  task.forEach((task) => {
+    const li = document.createElement('li');
+    li.classList = 'listItmes';
+    const check = document.createElement('input');
+    check.type = 'checkbox';
+    const span = document.createElement('span');
+    span.textContent = task.description;
+    li.appendChild(check);
+    li.appendChild(span);
+    const ellipsis = document.createElement('i');
+    ellipsis.classList.add('fa', 'fa-ellipsis-v');
+    ellipsis.setAttribute('aria-hidden', 'true');
+    li.appendChild(ellipsis);
+    taskList.appendChild(li);
+  });
+};
 
-      todoList.appendChild(li);
-    });
-}
-
-window.addEventListener('load', renderTodoList);
+window.addEventListener('load', renderTask);
