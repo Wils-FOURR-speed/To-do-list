@@ -1,0 +1,38 @@
+body {
+ justify-content: center;
+ align-items: center;
+ /* text-align: center; */
+ padding: 20px 20px ;
+}
+h1 {
+  text-align: center;
+}
+.main {
+  background-color: rgb(214, 214, 230);
+  height: 500px;
+  width: 600px;
+  border: 3px solid black;
+  margin: auto;
+}
+li {
+  list-style: none;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  margin-left: 10%;
+}
+.completed {
+  background-color: rgb(196, 192, 199);
+  font-size: 22px;
+  font-weight: 400;
+  margin-left: 25%;
+  height: 10%;
+  width: 50%;
+}
+.completed:hover {
+  background-color: aqua;
+}
+  padding-block: 1em;
+  font-size: 1rem;
+  color: rgb(184, 181, 181);
+}
