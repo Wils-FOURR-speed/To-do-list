@@ -1,45 +1,39 @@
 import './index.css';
 
-const task = [
+const tasks = [
   {
-    description: 'wash the dishes',
+    description: "Complete homework",
     completed: false,
-    index: 1,
+    index: 1
   },
   {
-    description: 'complete To Do list project',
-    completed: false,
-    index: 2,
+    description: "Go grocery shopping",
+    completed: true,
+    index: 2
   },
   {
-    description: 'Deploy the app to the server',
+    description: "Clean the kitchen",
     completed: false,
-    index: 3,
-  },
-
+    index: 3
+  }
 ];
 
-const renderTask = () => {
-  const taskList = document.getElementById('list');
-  taskList.innerHTML = '';
-  // sort tasks by index
-  task.sort((a, b) => a.index - b.index);
+function renderTodoList() {
+  const todoList = document.querySelector("#todo-list");
+  todoList.innerHTML = "";
 
-  task.forEach((task) => {
-    const li = document.createElement('li');
-    li.classList = 'listItmes';
-    const check = document.createElement('input');
-    check.type = 'checkbox';
-    const span = document.createElement('span');
-    span.textContent = task.description;
-    li.appendChild(check);
-    li.appendChild(span);
-    const ellipsis = document.createElement('i');
-    ellipsis.classList.add('fa', 'fa-ellipsis-v');
-    ellipsis.setAttribute('aria-hidden', 'true');
-    li.appendChild(ellipsis);
-    taskList.appendChild(li);
-  });
-};
+  tasks
+    .sort((a, b) => a.index - b.index)
+    .forEach((task) => {
+      const li = document.createElement("li");
 
-window.addEventListener('load', renderTask);
+      li.innerHTML = `
+        <input type="checkbox" ${task.completed ? "checked" : ""} />
+        <span>${task.description}</span>
+      `;
+
+      todoList.appendChild(li);
+    });
+}
+
+window.addEventListener("load", renderTodoList);
